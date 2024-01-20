@@ -1,0 +1,622 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2618229D2B5C5953004D8E2D /* TaskrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2618229C2B5C5953004D8E2D /* TaskrApp.swift */; };
+		2618229F2B5C5953004D8E2D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2618229E2B5C5953004D8E2D /* ContentView.swift */; };
+		261822A12B5C5955004D8E2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 261822A02B5C5955004D8E2D /* Assets.xcassets */; };
+		261822A52B5C5955004D8E2D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 261822A42B5C5955004D8E2D /* Preview Assets.xcassets */; };
+		261822AF2B5C5955004D8E2D /* TaskrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261822AE2B5C5955004D8E2D /* TaskrTests.swift */; };
+		261822B92B5C5955004D8E2D /* TaskrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261822B82B5C5955004D8E2D /* TaskrUITests.swift */; };
+		261822BB2B5C5955004D8E2D /* TaskrUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261822BA2B5C5955004D8E2D /* TaskrUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		261822AB2B5C5955004D8E2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 261822912B5C5953004D8E2D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 261822982B5C5953004D8E2D;
+			remoteInfo = Taskr;
+		};
+		261822B52B5C5955004D8E2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 261822912B5C5953004D8E2D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 261822982B5C5953004D8E2D;
+			remoteInfo = Taskr;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		261822992B5C5953004D8E2D /* Taskr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taskr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2618229C2B5C5953004D8E2D /* TaskrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskrApp.swift; sourceTree = "<group>"; };
+		2618229E2B5C5953004D8E2D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		261822A02B5C5955004D8E2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		261822A22B5C5955004D8E2D /* Taskr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Taskr.entitlements; sourceTree = "<group>"; };
+		261822A42B5C5955004D8E2D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		261822AA2B5C5955004D8E2D /* TaskrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		261822AE2B5C5955004D8E2D /* TaskrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskrTests.swift; sourceTree = "<group>"; };
+		261822B42B5C5955004D8E2D /* TaskrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		261822B82B5C5955004D8E2D /* TaskrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskrUITests.swift; sourceTree = "<group>"; };
+		261822BA2B5C5955004D8E2D /* TaskrUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskrUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		261822962B5C5953004D8E2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		261822A72B5C5955004D8E2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		261822B12B5C5955004D8E2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		261822902B5C5953004D8E2D = {
+			isa = PBXGroup;
+			children = (
+				2618229B2B5C5953004D8E2D /* Taskr */,
+				261822AD2B5C5955004D8E2D /* TaskrTests */,
+				261822B72B5C5955004D8E2D /* TaskrUITests */,
+				2618229A2B5C5953004D8E2D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2618229A2B5C5953004D8E2D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				261822992B5C5953004D8E2D /* Taskr.app */,
+				261822AA2B5C5955004D8E2D /* TaskrTests.xctest */,
+				261822B42B5C5955004D8E2D /* TaskrUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2618229B2B5C5953004D8E2D /* Taskr */ = {
+			isa = PBXGroup;
+			children = (
+				2618229C2B5C5953004D8E2D /* TaskrApp.swift */,
+				2618229E2B5C5953004D8E2D /* ContentView.swift */,
+				261822A02B5C5955004D8E2D /* Assets.xcassets */,
+				261822A22B5C5955004D8E2D /* Taskr.entitlements */,
+				261822A32B5C5955004D8E2D /* Preview Content */,
+			);
+			path = Taskr;
+			sourceTree = "<group>";
+		};
+		261822A32B5C5955004D8E2D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				261822A42B5C5955004D8E2D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		261822AD2B5C5955004D8E2D /* TaskrTests */ = {
+			isa = PBXGroup;
+			children = (
+				261822AE2B5C5955004D8E2D /* TaskrTests.swift */,
+			);
+			path = TaskrTests;
+			sourceTree = "<group>";
+		};
+		261822B72B5C5955004D8E2D /* TaskrUITests */ = {
+			isa = PBXGroup;
+			children = (
+				261822B82B5C5955004D8E2D /* TaskrUITests.swift */,
+				261822BA2B5C5955004D8E2D /* TaskrUITestsLaunchTests.swift */,
+			);
+			path = TaskrUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		261822982B5C5953004D8E2D /* Taskr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 261822BE2B5C5955004D8E2D /* Build configuration list for PBXNativeTarget "Taskr" */;
+			buildPhases = (
+				261822952B5C5953004D8E2D /* Sources */,
+				261822962B5C5953004D8E2D /* Frameworks */,
+				261822972B5C5953004D8E2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Taskr;
+			productName = Taskr;
+			productReference = 261822992B5C5953004D8E2D /* Taskr.app */;
+			productType = "com.apple.product-type.application";
+		};
+		261822A92B5C5955004D8E2D /* TaskrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 261822C12B5C5955004D8E2D /* Build configuration list for PBXNativeTarget "TaskrTests" */;
+			buildPhases = (
+				261822A62B5C5955004D8E2D /* Sources */,
+				261822A72B5C5955004D8E2D /* Frameworks */,
+				261822A82B5C5955004D8E2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				261822AC2B5C5955004D8E2D /* PBXTargetDependency */,
+			);
+			name = TaskrTests;
+			productName = TaskrTests;
+			productReference = 261822AA2B5C5955004D8E2D /* TaskrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		261822B32B5C5955004D8E2D /* TaskrUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 261822C42B5C5955004D8E2D /* Build configuration list for PBXNativeTarget "TaskrUITests" */;
+			buildPhases = (
+				261822B02B5C5955004D8E2D /* Sources */,
+				261822B12B5C5955004D8E2D /* Frameworks */,
+				261822B22B5C5955004D8E2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				261822B62B5C5955004D8E2D /* PBXTargetDependency */,
+			);
+			name = TaskrUITests;
+			productName = TaskrUITests;
+			productReference = 261822B42B5C5955004D8E2D /* TaskrUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		261822912B5C5953004D8E2D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					261822982B5C5953004D8E2D = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					261822A92B5C5955004D8E2D = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 261822982B5C5953004D8E2D;
+					};
+					261822B32B5C5955004D8E2D = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 261822982B5C5953004D8E2D;
+					};
+				};
+			};
+			buildConfigurationList = 261822942B5C5953004D8E2D /* Build configuration list for PBXProject "Taskr" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 261822902B5C5953004D8E2D;
+			productRefGroup = 2618229A2B5C5953004D8E2D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				261822982B5C5953004D8E2D /* Taskr */,
+				261822A92B5C5955004D8E2D /* TaskrTests */,
+				261822B32B5C5955004D8E2D /* TaskrUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		261822972B5C5953004D8E2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				261822A52B5C5955004D8E2D /* Preview Assets.xcassets in Resources */,
+				261822A12B5C5955004D8E2D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		261822A82B5C5955004D8E2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		261822B22B5C5955004D8E2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		261822952B5C5953004D8E2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2618229F2B5C5953004D8E2D /* ContentView.swift in Sources */,
+				2618229D2B5C5953004D8E2D /* TaskrApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		261822A62B5C5955004D8E2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				261822AF2B5C5955004D8E2D /* TaskrTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		261822B02B5C5955004D8E2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				261822BB2B5C5955004D8E2D /* TaskrUITestsLaunchTests.swift in Sources */,
+				261822B92B5C5955004D8E2D /* TaskrUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		261822AC2B5C5955004D8E2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 261822982B5C5953004D8E2D /* Taskr */;
+			targetProxy = 261822AB2B5C5955004D8E2D /* PBXContainerItemProxy */;
+		};
+		261822B62B5C5955004D8E2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 261822982B5C5953004D8E2D /* Taskr */;
+			targetProxy = 261822B52B5C5955004D8E2D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		261822BC2B5C5955004D8E2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		261822BD2B5C5955004D8E2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		261822BF2B5C5955004D8E2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Taskr/Taskr.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Taskr/Preview Content\"";
+				DEVELOPMENT_TEAM = N2C7SW2G4N;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = archetapp.Taskr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		261822C02B5C5955004D8E2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Taskr/Taskr.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Taskr/Preview Content\"";
+				DEVELOPMENT_TEAM = N2C7SW2G4N;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = archetapp.Taskr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		261822C22B5C5955004D8E2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N2C7SW2G4N;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = archetapp.TaskrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Taskr.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Taskr";
+			};
+			name = Debug;
+		};
+		261822C32B5C5955004D8E2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N2C7SW2G4N;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = archetapp.TaskrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Taskr.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Taskr";
+			};
+			name = Release;
+		};
+		261822C52B5C5955004D8E2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N2C7SW2G4N;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = archetapp.TaskrUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Taskr;
+			};
+			name = Debug;
+		};
+		261822C62B5C5955004D8E2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N2C7SW2G4N;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = archetapp.TaskrUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Taskr;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		261822942B5C5953004D8E2D /* Build configuration list for PBXProject "Taskr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				261822BC2B5C5955004D8E2D /* Debug */,
+				261822BD2B5C5955004D8E2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		261822BE2B5C5955004D8E2D /* Build configuration list for PBXNativeTarget "Taskr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				261822BF2B5C5955004D8E2D /* Debug */,
+				261822C02B5C5955004D8E2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		261822C12B5C5955004D8E2D /* Build configuration list for PBXNativeTarget "TaskrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				261822C22B5C5955004D8E2D /* Debug */,
+				261822C32B5C5955004D8E2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		261822C42B5C5955004D8E2D /* Build configuration list for PBXNativeTarget "TaskrUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				261822C52B5C5955004D8E2D /* Debug */,
+				261822C62B5C5955004D8E2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 261822912B5C5953004D8E2D /* Project object */;
+}
