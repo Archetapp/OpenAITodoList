@@ -15,6 +15,8 @@
 		261822B92B5C5955004D8E2D /* TaskrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261822B82B5C5955004D8E2D /* TaskrUITests.swift */; };
 		261822BB2B5C5955004D8E2D /* TaskrUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261822BA2B5C5955004D8E2D /* TaskrUITestsLaunchTests.swift */; };
 		261822C92B5C5BF8004D8E2D /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 261822C82B5C5BF8004D8E2D /* OpenAI */; };
+		261822CB2B5CA31E004D8E2D /* TodoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261822CA2B5CA31E004D8E2D /* TodoRow.swift */; };
+		261822CD2B5CA341004D8E2D /* TaskGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261822CC2B5CA340004D8E2D /* TaskGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		261822B42B5C5955004D8E2D /* TaskrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		261822B82B5C5955004D8E2D /* TaskrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskrUITests.swift; sourceTree = "<group>"; };
 		261822BA2B5C5955004D8E2D /* TaskrUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskrUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		261822CA2B5CA31E004D8E2D /* TodoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRow.swift; sourceTree = "<group>"; };
+		261822CC2B5CA340004D8E2D /* TaskGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			children = (
 				2618229C2B5C5953004D8E2D /* TaskrApp.swift */,
 				2618229E2B5C5953004D8E2D /* ContentView.swift */,
+				261822CA2B5CA31E004D8E2D /* TodoRow.swift */,
+				261822CC2B5CA340004D8E2D /* TaskGenerator.swift */,
 				261822A02B5C5955004D8E2D /* Assets.xcassets */,
 				261822A22B5C5955004D8E2D /* Taskr.entitlements */,
 				261822A32B5C5955004D8E2D /* Preview Content */,
@@ -267,8 +273,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261822CD2B5CA341004D8E2D /* TaskGenerator.swift in Sources */,
 				2618229F2B5C5953004D8E2D /* ContentView.swift in Sources */,
 				2618229D2B5C5953004D8E2D /* TaskrApp.swift in Sources */,
+				261822CB2B5CA31E004D8E2D /* TodoRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
