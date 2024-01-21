@@ -14,6 +14,7 @@
 		261822AF2B5C5955004D8E2D /* TaskrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261822AE2B5C5955004D8E2D /* TaskrTests.swift */; };
 		261822B92B5C5955004D8E2D /* TaskrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261822B82B5C5955004D8E2D /* TaskrUITests.swift */; };
 		261822BB2B5C5955004D8E2D /* TaskrUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261822BA2B5C5955004D8E2D /* TaskrUITestsLaunchTests.swift */; };
+		261822C92B5C5BF8004D8E2D /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 261822C82B5C5BF8004D8E2D /* OpenAI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261822C92B5C5BF8004D8E2D /* OpenAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +147,9 @@
 			dependencies = (
 			);
 			name = Taskr;
+			packageProductDependencies = (
+				261822C82B5C5BF8004D8E2D /* OpenAI */,
+			);
 			productName = Taskr;
 			productReference = 261822992B5C5953004D8E2D /* Taskr.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +222,9 @@
 				Base,
 			);
 			mainGroup = 261822902B5C5953004D8E2D;
+			packageReferences = (
+				261822C72B5C5BF8004D8E2D /* XCRemoteSwiftPackageReference "OpenAI" */,
+			);
 			productRefGroup = 2618229A2B5C5953004D8E2D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -617,6 +625,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		261822C72B5C5BF8004D8E2D /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		261822C82B5C5BF8004D8E2D /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 261822C72B5C5BF8004D8E2D /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 261822912B5C5953004D8E2D /* Project object */;
 }
