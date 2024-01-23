@@ -63,9 +63,9 @@ class TaskGenerator: ObservableObject {
                     RULES:
                     YOU MUST ADHERE TO THESE RULES. DO NOT BREAK ANY PATTERNS.
                     
-                    THE KEYS SPECIFICIED SHOULD NEVER CHANGE TO ANY OTHER TERM.
+                    THE KEYS SPECIFIED SHOULD NEVER CHANGE TO ANY OTHER TERM.
                     THE KEYS SHOULD NEVER BE CHANGE OR NUMBERED EVEN IF THEY"RE IN A LIST
-                    DO NOT include any other keys those those specified. DO NOT include any numbers in the keys.
+                    DO NOT include any other keys than those specified. DO NOT include any numbers in the keys.
                     The list of valid keys is: type, task, components, component, steps, step.
                     YOU MUST NOT INCLUDE ANY OTHER KEYS
                     END OF RULES
