@@ -59,7 +59,7 @@ jobs:
             exit 1
           fi
           mkdir -p docs
-          mv "$doccarchive_path" ./docs/DocC-Archive
+          mv "$doccarchive_path" ./docs/docs
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
