@@ -99,7 +99,7 @@ jobs:
           upload-logs: always
       - name: Generate DocC Documentation
         run: |
-          xcodebuild docbuild -scheme Lite -destination generic/platform=macOS
+          xcodebuild docbuild -scheme ${{ matrix.scheme }} -destination generic/platform=macOS
           if \[ -d "$(find . -name '\*.doccarchive' | head -n 1)" \]; then
             mkdir -p ./DocC-Archive
             mv $(find . -name '\*.doccarchive' | head -n 1) ./DocC-Archive
