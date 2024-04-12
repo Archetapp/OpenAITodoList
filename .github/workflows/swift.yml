@@ -99,7 +99,14 @@ jobs:
           upload-logs: always
       - name: Generate DocC Documentation
         run: |
-          mv $(find . -name '*.doccarchive' | head -n 1) ./DocC-Archive
+          xcodebuild docbuild -scheme Lite -destination generic/platform=macOS
+          if \[ -d "$(find . -name '\*.doccarchive' | head -n 1)" \]; then
+            mkdir -p ./DocC-Archive
+            mv $(find . -name '\*.doccarchive' | head -n 1) ./DocC-Archive
+          else
+            echo "No .doccarchive file found."
+            exit 1
+          fi
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
