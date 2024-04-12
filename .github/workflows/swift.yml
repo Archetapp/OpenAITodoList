@@ -60,9 +60,13 @@ jobs:
           fi
           mkdir -p docs
           mv "$doccarchive_path" ./docs/docs
-      - name: Adjust Path in HTML
+      - name: Modify URLs in Documentation Files
         run: |
-          find ./docs -name '*.html' -exec sed -i 's|/js/|js/|g' {} +
+          find ./docs -type f -name "*.html" -exec sed -i '' 's/\/js\//js\//g' {} +
+          find ./docs -type f -name "*.html" -exec sed -i '' 's/\/css\//css\//g' {} +
+          find ./docs -type f -name "*.html" -exec sed -i '' 's/\/data\//data\//g' {} +
+          find ./docs -type f -name "*.html" -exec sed -i '' 's/\/images\//images\//g' {} +
+          find ./docs -type f -name "*.html" -exec sed -i '' 's/\/downloads\//downloads\//g' {} +
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
