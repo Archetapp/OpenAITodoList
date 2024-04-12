@@ -52,17 +52,17 @@ jobs:
         run: defaults write com.apple.dt.Xcode IDESkipMacroFingerprintValidation -bool YES
       - name: Generate DocC Documentation
         run: |
-            xcodebuild docbuild -scheme Taskr -destination generic/platform=macOS
-            if \[ -d "$(find . -name '\*.doccarchive' | head -n 1)" \]; then
-              mkdir -p ./DocC-Archive
-              mv $(find . -name '\*.doccarchive' | head -n 1) ./DocC-Archive
-            else
-              echo "No .doccarchive file found."
-              exit 1
-            fi
+          xcodebuild docbuild -scheme Taskr -destination generic/platform=macOS -derivedDataPath ./build
+          doccarchive_path=$(find ./build -name '*.doccarchive' -print -quit)
+          if [ -z "$doccarchive_path" ]; then
+            echo "No .doccarchive file found."
+            exit 1
+          fi
+          mv "$doccarchive_path" ./DocC-Archive
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./DocC-Archive
-          keep_files: false # Set to true if you want to keep old files
+          keep_files: false
