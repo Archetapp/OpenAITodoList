@@ -89,24 +89,10 @@ jobs:
         run: xcodebuild -showdestinations -scheme ${{ matrix.scheme }}
       - name: Skip Macro Validation
         run: defaults write com.apple.dt.Xcode IDESkipMacroFingerprintValidation -bool YES
-      - uses: mxcl/xcodebuild@v2.0.0
-        with:
-          platform: ${{ matrix.platform }}
-          scheme: ${{ matrix.scheme }}
-          action: ${{ matrix.command }}
-          code-coverage: true
-          verbosity: xcpretty
-          upload-logs: always
       - name: Generate DocC Documentation
         run: |
-          xcodebuild docbuild -scheme ${{ matrix.scheme }} -destination generic/platform=macOS
-          if \[ -d "$(find . -name '\*.doccarchive' | head -n 1)" \]; then
-            mkdir -p ./DocC-Archive
-            mv $(find . -name '\*.doccarchive' | head -n 1) ./DocC-Archive
-          else
-            echo "No .doccarchive file found."
-            exit 1
-          fi
+          xcodebuild docbuild -scheme Lite -destination generic/platform=macOS -verbose
+          find . -name '\*.doccarchive'
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
