@@ -20,31 +20,53 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-docc:
-    runs-on: macos-13
+  generate_and_deploy_docs:
+    name: Build Documentation
+    runs-on: ${{ matrix.macos }}
+    strategy:
+      fail-fast: false
+      matrix:
+        xcode: ['latest']
+        macos: ['macos-14']
+        scheme: ['Taskr']
+        command: ['docbuild']
+        platform: ['macOS'] # ADD 'iOS', 'tvOS', 'watchOS'
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v1
-      - uses: fwcd/swift-docc-action@v1.0.2
+      - name: Switch xcode to ${{ matrix.xcode }}
+        uses: maxim-lobanov/setup-xcode@v1.5.1
         with:
-          target: main
-          output: ./docs
-          hosting-base-path: Taskr
-          disable-indexing: 'true'
-          transform-for-static-hosting: 'true'
-      - name: Init new repo in dist folder and commit generated files
+          xcode-version: ${{ matrix.xcode }}
+      - name: Double-check macOS version (${{ matrix.macos }})
+        run: sw_vers
+      - name: Code Checkout
+        uses: actions/checkout@v2
+      - name: Check xcodebuild version
+        run: xcodebuild -version
+      - name: Check xcode embedded SDKs
+        run: xcodebuild -showsdks
+      - name: Show buildable schemes
+        run: xcodebuild -list
+      - name: Show eligible build destinations for ${{ matrix.scheme }}
+        run: xcodebuild -showdestinations -scheme ${{ matrix.scheme }}
+      - name: Skip Macro Validation
+        run: defaults write com.apple.dt.Xcode IDESkipMacroFingerprintValidation -bool YES
+      - name: Generate DocC Documentation
         run: |
-          cd docs
-          git init
-          git add -A
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -m 'deploy'
-        
-      - name: Force push to destination branch
-        uses: ad-m/github-push-action@v0.6.0
+          xcodebuild docbuild -scheme Taskr -destination generic/platform=macOS -derivedDataPath ./build
+          doccarchive_path=$(find ./build -name '*.doccarchive' -print -quit)
+          if [ -z "$doccarchive_path" ]; then
+            echo "No .doccarchive file found."
+            exit 1
+          fi
+          mv "$doccarchive_path" ./DocC-Archive
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # Upload only docs directory
+          path: '.'
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: docs
-          force: true
-          directory: ./docs
+          publish_dir: ./DocC-Archive
+          keep_files: false
