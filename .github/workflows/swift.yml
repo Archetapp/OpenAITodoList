@@ -59,9 +59,12 @@ jobs:
             exit 1
           fi
           
+          # Install swift-docc-render
+          brew install swift-docc-render
+
           # Convert .doccarchive to static site
           mkdir -p ./docs
-          xcrun doctools convert --output-path ./docs --hosting-base-path taskr "$doccarchive_path"
+          swift-docc-render convert "$doccarchive_path" --output-path ./docs --hosting-base-path taskr
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
