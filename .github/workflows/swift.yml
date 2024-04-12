@@ -59,16 +59,14 @@ jobs:
             exit 1
           fi
           
-           # Install swift-docc-render
-          git clone https://github.com/apple/swift-docc-render.git
-          cd swift-docc-render
-          swift build -c release
-          sudo cp .build/release/swift-docc-render /usr/local/bin/
-          cd ..
+           # Download swift-docc-render
+          curl -L -O https://github.com/apple/swift-docc-render/releases/download/1.1.0/swift-docc-render.zip
+          unzip swift-docc-render.zip
+          chmod +x swift-docc-render
 
           # Convert .doccarchive to static site
           mkdir -p ./docs
-          swift-docc-render convert "$doccarchive_path" --output-path ./docs --hosting-base-path taskr
+          ./swift-docc-render convert "$doccarchive_path" --output-path ./docs --hosting-base-path taskr
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
