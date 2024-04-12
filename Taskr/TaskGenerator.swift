@@ -13,7 +13,6 @@ class TaskGenerator: ObservableObject {
     @Published var loading: Bool = false
     @Published var todos: [Todo] = []
     let openAI = OpenAI(apiToken: "")
-    #error("OpenAI Key Goes Here")
     
     var json = ""
 
@@ -75,10 +74,10 @@ class TaskGenerator: ObservableObject {
         
         print(prompt)
         let query = ChatQuery(
-            model: .gpt3_5Turbo,  // 0613 is the earliest version with function calls support.
             messages: [
-                Chat(role: .user, content: prompt)
-            ]
+                .init(role: .user, content: prompt)!
+            ],
+            model: .gpt3_5Turbo  // 0613 is the earliest version with function calls support.
         )
         
         // Inside your function
