@@ -62,7 +62,10 @@ jobs:
           mv "$doccarchive_path" ./docs/docs
       - name: Adjust Paths in Files
         run: |
-          find ./docs \( -name '*.html' -o -name '*.css' -o -name '*.js' \) -exec sed -i 's|/js/|js/|g' {} +
+          find ./docs \( -name '*.html' -o -name '*.css' -o -name '*.js' \) -exec sed -i '' 's|/js/|js/|g' {} +
+          shell: /bin/bash -e {0}
+          env:
+            MD_APPLE_SDK_ROOT: /Applications/Xcode_15.3.app
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
