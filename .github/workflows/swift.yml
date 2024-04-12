@@ -59,16 +59,76 @@ jobs:
             exit 1
           fi
           mv "$doccarchive_path" ./DocC-Archive
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          # Upload only docs directory
-          path: '.'
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./DocC-Archive
           keep_files: false
+      # Custom Swift-DocC-Render and additional documentation handling
+      - name: Checkout swift-docc-render
+        uses: actions/checkout@v2
+        with:
+          repository: 'karwa/swift-docc-render'
+          ref: main
+          path: swift-docc-render
 
+      - name: Build swift-docc-render
+        run: |
+          cd swift-docc-render
+          npm install && npm run build
+          cd ..
+
+      - name: Checkout gh-pages Branch
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+          path: docs-out
+
+      - name: Clear existing docs for main
+        run: |
+          rm -rf docs-out/.git
+          rm -rf docs-out/main
+          mkdir -p docs-out/main
+
+      - name: Generate SymbolGraph for main
+        run: |
+          mkdir -p .build/symbol-graphs
+          swift build --target Taskr -Xswiftc -emit-symbol-graph -Xswiftc -emit-symbol-graph-dir -Xswiftc .build/symbol-graphs
+
+      - name: Build Documentation for main
+        run: |
+          export DOCC_HTML_DIR="$(pwd)/swift-docc-render/dist"
+          swift-docc/.build/release/docc convert Sources/Taskr/Taskr.docc --fallback-display-name Taskr --fallback-bundle-identifier com.yourcompany.Taskr --fallback-bundle-version 0.0.0 --additional-symbol-graph-dir .build/symbol-graphs --transform-for-static-hosting --hosting-base-path /Taskr/main --output-path docs-out/main
+
+      # Handle documentation for the latest tag
+      - name: Find and Process Documentation for Latest Tag
+        run: |
+          latest_tag=$(git tag -l | tail -1)
+          echo "latest_tag=${latest_tag}" >> $GITHUB_ENV
+          if [ ! -d "docs-out/${latest_tag}" ]; then
+            mkdir -p docs-out/${latest_tag}
+            echo "latest_tag_needs_docs=true" >> $GITHUB_ENV
+          fi
+
+      - name: Checkout and Build Documentation for Latest Tag
+        if: ${{ env.latest_tag_needs_docs }}
+        run: |
+          git checkout ${{ env.latest_tag }}
+          mkdir -p .build/symbol-graphs
+          swift build --target Taskr -Xswiftc -emit-symbol-graph -Xswiftc -emit-symbol-graph-dir -Xswiftc .build/symbol-graphs
+          export DOCC_HTML_DIR="$(pwd)/swift-docc-render/dist"
+          docc convert Sources/Taskr/Taskr.docc --fallback-display-name Taskr --fallback-bundle-identifier com.yourcompany.Taskr --fallback-bundle-version ${{ env.latest_tag }} --additional-symbol-graph-dir .build/symbol-graphs --transform-for-static-hosting --hosting-base-path /Taskr/${{ env.latest_tag }} --output-path docs-out/${{ env.latest_tag }}
+
+      - name: Update symlink for latest documentation
+        if: ${{ env.latest_tag_needs_docs }}
+        run: |
+          ln -sfn ${{ env.latest_tag }} docs-out/latest
+
+      - name: Publish documentation to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.7
+        with:
+          branch: gh-pages
+          folder: docs-out
+          single-commit: true
+          clean: true
