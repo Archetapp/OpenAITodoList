@@ -63,5 +63,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./DocC-Archive
+          publish_branch: main
+          publish_dir: ./docs
           keep_files: false
