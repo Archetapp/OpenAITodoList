@@ -58,7 +58,6 @@ jobs:
             echo "No .doccarchive file found."
             exit 1
           fi
-          mkdir -p docs
           mv "$doccarchive_path" ./docs
       - name: Modify URLs in Documentation Files
         run: |
