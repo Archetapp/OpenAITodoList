@@ -20,45 +20,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build_and_test:
-    name: ${{ matrix.command }} on  ${{ matrix.platform }} (xcode ${{ matrix.xcode }}, ${{ matrix.macos }})
-    runs-on: ${{ matrix.macos }} 
-    strategy:
-      fail-fast: false
-      matrix:
-        xcode: ['latest']
-        macos: ['macos-13']
-        scheme: ['Taskr']
-        command: ['build']
-        platform: ['macOS'] # ADD 'iOS', 'tvOS', 'watchOS'
-    steps:
-    - name: Switch xcode to ${{ matrix.xcode }}
-      uses: maxim-lobanov/setup-xcode@v1.5.1
-      with:
-        xcode-version: ${{ matrix.xcode }}
-    - name: Double-check macOS version (${{ matrix.macos }})
-      run: sw_vers
-    - name: Code Checkout
-      uses: actions/checkout@v2
-    - name: Check xcodebuild version
-      run: xcodebuild -version
-    - name: Check xcode embedded SDKs
-      run: xcodebuild -showsdks
-    - name: Show buildable schemes
-      run: xcodebuild -list
-    - name: Show eligible build destinations for ${{ matrix.scheme }}
-      run: xcodebuild -showdestinations -scheme ${{ matrix.scheme }}
-    - name: Skip Macro Validation
-      run: defaults write com.apple.dt.Xcode IDESkipMacroFingerprintValidation -bool YES
-    - uses: mxcl/xcodebuild@v2.0.0
-      with:
-        platform: ${{ matrix.platform }}
-        scheme: ${{ matrix.scheme }}
-        action: ${{ matrix.command }} 
-        code-coverage: true
-        verbosity: xcpretty
-        upload-logs: always
-        
   generate_and_deploy_docs:
     name: Build Documentation
     runs-on: ${{ matrix.macos }}
@@ -91,8 +52,14 @@ jobs:
         run: defaults write com.apple.dt.Xcode IDESkipMacroFingerprintValidation -bool YES
       - name: Generate DocC Documentation
         run: |
-          xcodebuild docbuild -scheme Taskr -destination generic/platform=macOS -verbose
-          find . -name '\*.doccarchive'
+            xcodebuild docbuild -scheme Lite -destination generic/platform=macOS
+            if \[ -d "$(find . -name '\*.doccarchive' | head -n 1)" \]; then
+              mkdir -p ./DocC-Archive
+              mv $(find . -name '\*.doccarchive' | head -n 1) ./DocC-Archive
+            else
+              echo "No .doccarchive file found."
+              exit 1
+            fi
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
