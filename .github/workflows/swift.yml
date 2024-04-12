@@ -58,10 +58,10 @@ jobs:
             echo "No .doccarchive file found."
             exit 1
           fi
-          mv "$doccarchive_path" ./DocC-Archive
+          mv "$doccarchive_path" ./docs/DocC-Archive
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/DocC-Archive
+          publish_dir: ./docs
           keep_files: false
