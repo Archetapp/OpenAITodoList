@@ -59,8 +59,12 @@ jobs:
             exit 1
           fi
           
-          # Install swift-docc-render
-          brew install swift-docc-render
+           # Install swift-docc-render
+          git clone https://github.com/apple/swift-docc-render.git
+          cd swift-docc-render
+          swift build -c release
+          sudo cp .build/release/swift-docc-render /usr/local/bin/
+          cd ..
 
           # Convert .doccarchive to static site
           mkdir -p ./docs
