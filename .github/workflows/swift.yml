@@ -60,11 +60,11 @@ jobs:
           fi
           
       - name: Convert DocC Archive to Static Website
-        uses: xnaas/swift-docc-publish-gh-pages-action@v1
+        uses: fwcd/swift-docc-action@v1
         with:
-          doccarchive: "${{ steps.generate_docs.outputs.doccarchive_path }}"
+          inputs: "${{ steps.generate_docs.outputs.doccarchive_path }}"
           output: "./docs"
-          base-path: "taskr"
+          base-url: "taskr"
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
