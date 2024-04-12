@@ -58,6 +58,14 @@ jobs:
             echo "No .doccarchive file found."
             exit 1
           fi
-          mv "$doccarchive_path" ./docs
-      - name: build static site
-        uses: actions/build-docC-static-site@v1.0.2
+          
+          # Convert .doccarchive to static site
+          mkdir -p ./docs
+          xcrun doctools convert --output-path ./docs --hosting-base-path taskr "$doccarchive_path"
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          keep_files: false
