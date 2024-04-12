@@ -20,115 +20,31 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  generate_and_deploy_docs:
-    name: Build Documentation
-    runs-on: ${{ matrix.macos }}
-    strategy:
-      fail-fast: false
-      matrix:
-        xcode: ['latest']
-        macos: ['macos-14']
-        scheme: ['Taskr']
-        command: ['docbuild']
-        platform: ['macOS'] # ADD 'iOS', 'tvOS', 'watchOS'
+  build-docc:
+    runs-on: macos-13
     steps:
-      - name: Switch xcode to ${{ matrix.xcode }}
-        uses: maxim-lobanov/setup-xcode@v1.5.1
+      - name: Checkout repository
+        uses: actions/checkout@v1
+      - uses: fwcd/swift-docc-action@v1.0.2
         with:
-          xcode-version: ${{ matrix.xcode }}
-      - name: Double-check macOS version (${{ matrix.macos }})
-        run: sw_vers
-      - name: Code Checkout
-        uses: actions/checkout@v2
-      - name: Check xcodebuild version
-        run: xcodebuild -version
-      - name: Check xcode embedded SDKs
-        run: xcodebuild -showsdks
-      - name: Show buildable schemes
-        run: xcodebuild -list
-      - name: Show eligible build destinations for ${{ matrix.scheme }}
-        run: xcodebuild -showdestinations -scheme ${{ matrix.scheme }}
-      - name: Skip Macro Validation
-        run: defaults write com.apple.dt.Xcode IDESkipMacroFingerprintValidation -bool YES
-      - name: Generate DocC Documentation
+          target: main
+          output: ./docs
+          hosting-base-path: Taskr
+          disable-indexing: 'true'
+          transform-for-static-hosting: 'true'
+      - name: Init new repo in dist folder and commit generated files
         run: |
-          xcodebuild docbuild -scheme Taskr -destination generic/platform=macOS -derivedDataPath ./build
-          doccarchive_path=$(find ./build -name '*.doccarchive' -print -quit)
-          if [ -z "$doccarchive_path" ]; then
-            echo "No .doccarchive file found."
-            exit 1
-          fi
-          mv "$doccarchive_path" ./DocC-Archive
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+          cd docs
+          git init
+          git add -A
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m 'deploy'
+        
+      - name: Force push to destination branch
+        uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./DocC-Archive
-          keep_files: false
-      # Custom Swift-DocC-Render and additional documentation handling
-      - name: Checkout swift-docc-render
-        uses: actions/checkout@v2
-        with:
-          repository: 'karwa/swift-docc-render'
-          ref: main
-          path: swift-docc-render
-
-      - name: Build swift-docc-render
-        run: |
-          cd swift-docc-render
-          npm install && npm run build
-          cd ..
-
-      - name: Checkout gh-pages Branch
-        uses: actions/checkout@v2
-        with:
-          ref: gh-pages
-          path: docs-out
-
-      - name: Clear existing docs for main
-        run: |
-          rm -rf docs-out/.git
-          rm -rf docs-out/main
-          mkdir -p docs-out/main
-
-      - name: Generate SymbolGraph for main
-        run: |
-          mkdir -p .build/symbol-graphs
-          swift build --target Taskr -Xswiftc -emit-symbol-graph -Xswiftc -emit-symbol-graph-dir -Xswiftc .build/symbol-graphs
-
-      - name: Build Documentation for main
-        run: |
-          export DOCC_HTML_DIR="$(pwd)/swift-docc-render/dist"
-          swift-docc/.build/release/docc convert Sources/Taskr/Taskr.docc --fallback-display-name Taskr --fallback-bundle-identifier com.yourcompany.Taskr --fallback-bundle-version 0.0.0 --additional-symbol-graph-dir .build/symbol-graphs --transform-for-static-hosting --hosting-base-path /Taskr/main --output-path docs-out/main
-
-      # Handle documentation for the latest tag
-      - name: Find and Process Documentation for Latest Tag
-        run: |
-          latest_tag=$(git tag -l | tail -1)
-          echo "latest_tag=${latest_tag}" >> $GITHUB_ENV
-          if [ ! -d "docs-out/${latest_tag}" ]; then
-            mkdir -p docs-out/${latest_tag}
-            echo "latest_tag_needs_docs=true" >> $GITHUB_ENV
-          fi
-
-      - name: Checkout and Build Documentation for Latest Tag
-        if: ${{ env.latest_tag_needs_docs }}
-        run: |
-          git checkout ${{ env.latest_tag }}
-          mkdir -p .build/symbol-graphs
-          swift build --target Taskr -Xswiftc -emit-symbol-graph -Xswiftc -emit-symbol-graph-dir -Xswiftc .build/symbol-graphs
-          export DOCC_HTML_DIR="$(pwd)/swift-docc-render/dist"
-          docc convert Sources/Taskr/Taskr.docc --fallback-display-name Taskr --fallback-bundle-identifier com.yourcompany.Taskr --fallback-bundle-version ${{ env.latest_tag }} --additional-symbol-graph-dir .build/symbol-graphs --transform-for-static-hosting --hosting-base-path /Taskr/${{ env.latest_tag }} --output-path docs-out/${{ env.latest_tag }}
-
-      - name: Update symlink for latest documentation
-        if: ${{ env.latest_tag_needs_docs }}
-        run: |
-          ln -sfn ${{ env.latest_tag }} docs-out/latest
-
-      - name: Publish documentation to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.7
-        with:
-          branch: gh-pages
-          folder: docs-out
-          single-commit: true
-          clean: true
+          branch: docs
+          force: true
+          directory: ./docs
