@@ -28,7 +28,7 @@ jobs:
       matrix:
         xcode: ['latest']
         macos: ['macos-13']
-        scheme: ['OpenAITodoList']
+        scheme: ['Taskr']
         command: ['build']
         platform: ['macOS'] # ADD 'iOS', 'tvOS', 'watchOS'
     steps:
@@ -67,7 +67,7 @@ jobs:
       matrix:
         xcode: ['latest']
         macos: ['macos-14']
-        scheme: ['OpenAITodoList']
+        scheme: ['Taskr']
         command: ['docbuild']
         platform: ['macOS'] # ADD 'iOS', 'tvOS', 'watchOS'
     steps:
